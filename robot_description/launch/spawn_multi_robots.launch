@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<launch>
+	<include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find gazebo_ros_sdf)/worlds/willowgarage_plusplus.world"/> <!-- Note: the world_name is with respect to GAZEBO_RESOURCE_PATH environmental variable -->
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="recording" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+  
+  <include file="$(find robot_description)/launch/robot_spawn.launch">
+    <arg name="robot_name" value="sos_rs1"/>
+    <arg name="xcoordinate" value="20"/>
+    <arg name="ycoordinate" value="22"/>
+  </include>
+
+  <include file="$(find robot_description)/launch/robot_spawn.launch">
+    <arg name="robot_name" value="sos_rs2"/>
+    <arg name="xcoordinate" value="20"/>
+    <arg name="ycoordinate" value="39"/>
+  </include> 
+
+  <!--include file="$(find robot_description)/launch/robot_spawn.launch">
+    <arg name="robot_name" value="sos_rs3"/>
+    <arg name="xcoordinate" value="-70"/>
+    <arg name="ycoordinate" value="-32"/>
+  </include>
+  <include file="$(find robot_description)/launch/robot_spawn.launch">
+    <arg name="robot_name" value="sos_rs4"/>
+    <arg name="xcoordinate" value="-70"/>
+    <arg name="ycoordinate" value="-29"/>
+  </include>  
+  <include file="$(find robot_description)/launch/robot_spawn.launch">
+    <arg name="robot_name" value="sos_rs5"/>
+    <arg name="xcoordinate" value="-70"/>
+    <arg name="ycoordinate" value="-26"/>
+  </include>  
+  <include file="$(find robot_description)/launch/robot_spawn.launch">
+    <arg name="robot_name" value="sos_rs6"/>
+    <arg name="xcoordinate" value="-70"/>
+    <arg name="ycoordinate" value="-23"/>
+  </include-->    
+</launch>

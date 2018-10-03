@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<launch>
+  <include file="$(find robot_description)/launch/spawn_robot.launch">
+    <arg name="robot_name" value="sos_rs1"/>
+  	<arg name="pose_x" value="0"/>
+  	<arg name="pose_y" value="0"/>
+    <arg name="pose_yaw" value="0"/>
+  </include>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="worlds/willowgarage.world"/> 
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="recording" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+</launch>

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<robot
+  xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+  xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+  xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+  xmlns:xacro="http://ros.org/wiki/xacro"
+  name="pioneer3at_rc2016">
+
+  <xacro:include filename="$(find p3at_description)/urdf/pioneer3at_body.xacro"/>
+  <xacro:include filename="$(find p3at_description)/urdf/hokuyo_utm30lx.urdf.xacro"/>
+  <xacro:include filename="$(find p3at_description)/urdf/camera_rc2016.urdf.xacro"/>
+<!--newly added-->
+	<xacro:include filename="$(find p3at_description)/urdf/thermal_camera.urdf.xacro" />
+
+  <xacro:hokuyo_utm30lx name="hokuyo" parent="base_link" ros_topic="hokuyo" update_rate="30" ray_count="181" min_angle="90" max_angle="-90">
+    <origin xyz="0.13 0 0.32" rpy="0 0 0"/>
+  </xacro:hokuyo_utm30lx>
+  <!--xacro:handmade_laser name="handmade_laser" parent="base_link" ros_topic="handmade_laser">
+    <origin xyz="0 0 0.1" rpy="0 0 0"/>
+  </xacro:handmade_laser-->
+  <xacro:camera_rc2016 name="camera" parent="base_link" ros_topic="camera" update_rate="30" height="0.09">
+    <origin xyz="0.095 0.0 0.38" rpy="0 0 0"/>
+  </xacro:camera_rc2016>
+  <!--xacro:flir_a35_camera name="thermal" parent="base_link">
+                  <origin xyz="0.105 0.0 0.41" rpy="0 0 0"/>
+  </xacro:flir_a35_camera-->
+
+</robot>
